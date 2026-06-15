@@ -61,4 +61,4 @@ frame**, so it keeps up with Twitch's heavy DOM churn without hammering the CPU.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE.md](LICENSE.md).
