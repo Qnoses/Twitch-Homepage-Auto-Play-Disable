@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Homepage Auto-Play Disable
 // @namespace    https://github.com/Qnoses
-// @version      3.0
+// @version      3.1
 // @description  Silences Twitch's auto-playing homepage carousel and persistent corner mini-player by role (data-a-player-type) — muting and optionally hiding them — while never touching the channel/VOD player you actually opened.
 // @author       Qnoses
 // @license      MIT
