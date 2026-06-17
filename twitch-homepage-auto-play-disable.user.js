@@ -60,8 +60,11 @@
     // Give audio back when a silenced video is no longer a nuisance role; only unmute one we muted from unmuted, so a user-muted stream stays muted.
     function restore(video) {
         if (video.dataset.autoplayPrevMuted === '0') video.muted = false;
+        // If we paused it for bandwidth, resume on return: Twitch won't auto-resume a sink we deliberately paused when the same stream is reopened.
+        const wePaused = video.dataset.autoplayPauseTried !== undefined;
         delete video.dataset.autoplayPrevMuted;
-        delete video.dataset.autoplayPauseTried; // let a later nuisance role pause again
+        delete video.dataset.autoplayPauseTried;
+        if (wePaused && video.paused) video.play()?.catch(() => {});
     }
 
     // Single delayed pause to stop the stream for bandwidth; never repeated (can't loop). Re-checked at fire time so a video that left the set isn't paused.
